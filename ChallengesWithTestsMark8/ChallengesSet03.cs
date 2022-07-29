@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,47 +9,65 @@ namespace ChallengesWithTestsMark8
     {
         public bool ArrayContainsAFalse(bool[] vals)
         {
-            throw new NotImplementedException();
+           return vals.Contains(false) ? true : false;
         }
 
         public bool IsSumOfOddsOdd(IEnumerable<int> numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null || numbers.Count() == 0)
+            {
+                return false;
+            }
+            var oddNum = numbers.Where(x => x % 2 != 0).ToList();
+
+            return (oddNum.Sum() % 2 != 0);
+            {
+                return true;
+            }
+
+            //return numbers == null || numbers.Count() == 0 || oddNum.Sum() % 2 == 0 ? false : true;
+
         }
 
         public bool PasswordContainsUpperLowerAndNumber(string password)
         {
-            throw new NotImplementedException();
+            return password.Any(char.IsUpper) && password.Any(char.IsLower) && password.Any(char.IsDigit) ? true : false;   
         }
 
         public char GetFirstLetterOfString(string val)
         {
-            throw new NotImplementedException();
+            return val.First();
         }
 
         public char GetLastLetterOfString(string val)
         {
-            throw new NotImplementedException();
+            return val.Last();
         }
 
         public decimal Divide(decimal dividend, decimal divisor)
         {
-            throw new NotImplementedException();
+            return dividend == 0 || divisor == 0 ? 0 : dividend / divisor;
         }
 
         public int LastMinusFirst(int[] nums)
         {
-            throw new NotImplementedException();
+            var last = nums.Last();
+            var first = nums.First();
+            return last - first;
         }
 
         public int[] GetOddsBelow100()
         {
-            throw new NotImplementedException();
+            return Enumerable.Range(1, 100).Where(x => x % 2 != 0).ToArray();
+           
         }
 
         public void ChangeAllElementsToUppercase(string[] words)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < words.Length; i++)
+            {
+                words[i] = words[i].ToUpper();
+            }
         }
     }
 }
