@@ -83,8 +83,13 @@ namespace ChallengesWithTestsMark8
                 }
                 return num;
             }
-            return 1;
+            if (number < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
 
+            return 1;
+            
         }
     }
 }
